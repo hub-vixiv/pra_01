@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Profile</title>
+  <link rel="icon" type="image/ico" href="./imgs/icon.ico">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script type="text/javascript" language="javascript" src="./js/jquery-3.7.0.min.js" defer></script>
+  <script type="text/javascript" language="javascript" src="./js/script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header_container">
+
+      <!-- トップへ戻るボタン -->
+      <a class="to_pagetop" href="#"><div class="pagetop_arrow"></div></a>
+      <div class="header_left">
+        <h1>My Profile</h1>
+      </div>
+      <div class="header_right">
+          <nav>
+              <ul>
+                  <li><a href="#service">Service</a></li>
+                  <li><a href="#works">Works</a></li>
+                  <li><a href="#career">Career</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+          </nav>
+          <!-- ハンバーガーボタン -->
+          <div class="open_btn"><span></span><span></span><span></span>
+          </div>
+        </div>
+    </div>
+</header>
+
+<main>
+  <section class="main_img_wrap">
+    <img src="imgs/main1920_1280.jpg" alt="" class="main_img">
+  </section>
+
+  <section class="service wrap section_wrap" id="service">
+    <h2 class="section_title">Service</h2>
+    <div class="contents">
+      <div class="content">
+        <h3 class="content_title">デザイン</h3>
+        <h4 class="content_sub_title">Dsign</h4>
+        <div class="img_wrap">
+          <img src="imgs/icon_paint.png" alt="" class="icon_img">
+        </div>
+        <p class="content_text">
+          ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。
+        </p>
+      </div>
+
+      <div class="content">
+        <h3 class="content_title">プログラミング</h3>
+        <h4 class="content_sub_title">Programing</h4>
+        <div class="img_wrap">
+          <img src="imgs/icon_program.png" alt="" class="icon_img">
+        </div>
+        <p class="content_text">
+          ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。
+        </p>
+      </div>
+
+      <div class="content">
+        <h3 class="content_title">コンサルティング</h3>
+        <h4 class="content_sub_title">Consulting</h4>
+        <div class="img_wrap">
+          <img src="imgs/icon_man.png" alt="" class="icon_img">
+        </div>
+        <p class="content_text">
+          ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。ここに詳細が記載される。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="works wrap section_wrap">
+    <h2 class="section_title">Works</h2>
+    <div class="container">
+      <div class="img_wrap">
+        <a href="work1.html"><img src="imgs/img1.jpg" alt=""></a>
+      </div>
+      <div class="img_wrap">
+        <img src="imgs/img2.jpg" alt="">
+      </div>
+      <div class="img_wrap">
+        <img src="imgs/img3.jpg" alt="">
+      </div>
+      <div class="img_wrap">
+        <img src="imgs/img4.jpg" alt="">
+      </div>
+      <div class="img_wrap">
+        <img src="imgs/img5.jpg" alt="">
+      </div>
+      <div class="img_wrap">
+        <img src="imgs/img6.jpg" alt="">
+      </div>
+    </div>
+    <div class="view_more_wrap">
+      <a href="" class="view_more">VIEW MORE</a>
+    </div>
+
+  </section>
+
+  <section class="career wrap section_wrap">
+    <h2 class="section_title">Career</h2>
+    <div class="content_texts">
+      <p class="text">2000年から webデザイナーとしてキャリアをスタート</p>
+      <p class="text">2003年に 東京都内の制作会社にて webデザイン部 マネージャーとしてデザイン業務に携わる。</p>
+      <p class="text">2010年からフリーランスへ転向し、web制作やコンサルティングを行っています。</p>
+    </div>
+  </section>
+
+  <section class="contact wrap section_wrap">
+    <h2 class="section_title">Contact</h2>
+    <div class="form_wrap">
+      <form action="" class="contact_form" method="post">
+        <label for="name">氏名：</label><br>
+        <input type="text" id="name" class="name"><br>
+        <label for="email">Email：</label><br>
+        <input type="email" id="email" class="email"><br>
+        <label for="discription">内容：</label><br>
+        <textarea name="discription" id="discription" cols="30" rows="8"></textarea><br>
+        <input type="submit" value="内容を送信する" class="btn">
+      </form>
+    </div>
+  </section>
+
+</main>
+  <footer class="footer wrap section_wrap">
+    <hr>
+    <div class="footer_copy">
+      &copy;My Profile
+    </div>
+  </footer>
+
+</body>
+</html>

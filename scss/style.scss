@@ -1,0 +1,451 @@
+@charset "utf-8";
+
+/*
+Author: Office Niko
+*/
+
+/*--------------------
+Base
+----------------------*/
+$main_color: #e9e9e9 ; /*example background-color*/
+$sub_color: #252525; /*example button's background-dolor*/
+$font_color: #252525 ; /*example button's font color*/
+$font_color2: #f4f4f4 ; /*example button's point color*/
+
+$bp_m : 767px;    /* m = mobile */
+$bp_t : 768px;    /* t = tablet */
+$bp_pc: 1200px;
+
+/* media mixin */
+/* ＰＣファースト 指定以下に適用 */
+@mixin media_tab(){
+  @media screen and (max-width: $bp_pc){
+    @content;
+  }
+}
+@mixin media_m(){
+  @media screen and (max-width: $bp_t){
+    @content;
+  }
+}
+/* モバイルファースト */
+@mixin media_pc(){
+  @media screen and (min-width: $bp_pc){
+    @content;
+  }
+}
+
+
+*, *::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  margin: 0 auto;
+  padding: 0;
+  background-color: $main_color;
+  color: $font_color;
+}
+a{
+  text-decoration: none;
+  color: $font_color;
+}
+
+li{
+  list-style: none;
+  list-style-position: inside;
+}
+img{
+  vertical-align: bottom;
+}
+h1,h2,h3,h4,h5,h6{
+  text-align: center;
+}
+
+  /*ページトップへ戻るボタン*/
+  .to_pagetop {
+    height: 8vh;
+    width: 8vh;
+    position: fixed;
+    right: 5vw;
+    bottom: 5vh;
+    background: $main_color;
+    border: solid 2px $sub_color;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+  .pagetop_arrow {
+    height: 3vh;
+    width: 3vh;
+    border-top: 3px solid $sub_color;
+    border-right: 3px solid $sub_color;
+    transform: translateY(20%) rotate(-45deg);
+  }
+
+
+.wrap{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header{
+  position: fixed;
+  width: 100vw;
+  height: 4em;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffffd2;
+  .header_container{
+    width: 1200px;
+    margin: 0 auto;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+  .header_left{
+    h1{
+      padding-left: 20px;
+      height: 1em;
+      line-height: 1em;
+    }
+  }
+  .header_right{
+    nav{
+      height: 10vh;
+      padding: 1vh auto;
+      display: flex;
+      align-items: center;
+      ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+          padding :0 20px;
+          width: 5em;
+          text-align: center;
+          border-right: 1px solid $font_color;
+          font-size: 1.4em;
+
+          &:last-child{
+            border: none;
+          }
+          a{
+            display: block;
+            width: 100%;
+            text-shadow: 2px 2px 5px white;
+          }
+          a:hover{
+            font-weight: bold;
+          }
+        }
+      }
+      &.active{
+        right: 0;
+      }
+    
+      @include media_tab(){
+      transition: 1s;
+      position: fixed;
+      right: -120%;
+      top: 100px;
+      padding-top: 100px;
+      ul{
+          background-color: rgba(255, 250, 240, 0.9);
+          display: block;
+          li{
+            margin: 50px auto;
+            width: 60vw;
+            height: 5vh;
+            padding-top: 4vh;
+            border-right: none;
+            border-bottom: 1px solid $font_color;
+            vertical-align: middle;
+          }
+          a{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+  }
+}
+/*ハンバーガーボタン*/
+  .open_btn{
+    background-color: $sub_color;
+    position: relative;/*ボタン内側の基点となるためrelativeを指定*/
+    color:$main_color;
+    cursor: pointer;
+    width: 50px;
+    height:50px;
+    border-radius: 5px;
+    margin-right: 2vw;
+    display: none;
+
+    @include media_tab(){
+      display: block;
+    }
+  }
+  /*ボタン内側*/
+  .open_btn span{
+    display: inline-block;
+    transition: all .4s;/*アニメーションの設定*/
+    position: absolute;
+    left: 14px;
+    height: 2px;
+    border-radius: 5px;
+    background: $main_color;
+    width: 45%;
+    }
+  .open_btn span:nth-of-type(1) {
+    top:13px;
+  }
+.open_btn span:nth-of-type(2) {
+    top:19px;
+  }
+  .open_btn span:nth-of-type(3) {
+    top:25px;
+  }
+  .open_btn span:nth-of-type(3)::after {
+    content:"Menu";/*3つ目の要素のafterにMenu表示を指定*/
+    position: absolute;
+    top:5px;
+    left:-2px;
+    color: $main_color;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+  }
+/*activeクラスが付与されると線が回転して×になり、Menu⇒Closeに変更*/
+  .open_btn.active span:nth-of-type(1) {
+    top: 14px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+  }
+  .open_btn.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+  .open_btn.active span:nth-of-type(3){
+    top: 26px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+  }
+  .open_btn.active span:nth-of-type(3)::after {
+    content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+    transform: translateY(0) rotate(-45deg);
+    top:5px;
+    left:4px;
+  }
+
+
+main{
+  // width: 100%;
+
+//メインイメージ
+  .main_mg_wrap{
+    width:100vw;
+    height: 600px;
+
+    img{
+      width:100%;
+      height:600px;
+      object-fit:cover;
+    }
+  }
+  .section_wrap{
+    margin: 80px auto 100px;
+  }
+  .section_title{
+    display: inline-block;
+    font-size: 4em;
+  }
+  .content_title{
+    font-size: 2em;
+
+  }
+  .content_sub_title{
+    font-size: 1.5em;
+    margin: 30px 0;
+  }
+
+  .service{
+    .contents{
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+  
+      .content{
+        width: 30%;
+  
+        .img_wrap{
+          width: 150px;
+          margin: 50px auto;
+  
+        }
+  
+        img{
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+  
+        }
+      }
+    }
+  }
+
+  .works{
+    margin: 100px auto;
+    .container{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 30px;
+      margin: 80px auto;
+
+      .img_wrap{
+        width: 350px;
+        height: 250px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+    }
+
+    .view_more_wrap{
+      text-align: center;
+
+      .view_more{
+        display: inline-block;
+        padding: 15px;
+        border-bottom: 1px solid #000;
+        font-size: 1.3em;
+
+        &:hover{
+        background-color: #eee;
+        border-radius: 6px;
+        box-shadow: 3px 3px 3px black;
+        }
+      }
+    }
+  }
+
+  .career{
+    .content_texts{
+      margin-top: 20px;
+      .text{
+        margin: 30px;
+      }
+    }
+  }
+
+  .contact{
+    .form_wrap{
+      margin-top: 50px;
+      .contact_form{
+        padding-left: 50px;
+        label,input{
+          margin: 10px 0;
+        }
+        input[type="text"],input[type="email"]{
+          line-height: 2em;
+        }
+        textarea{
+          width: 400px;
+          margin-bottom: 10px;
+        }
+        .btn{
+          
+          padding: 10px 40px;
+          background-color: #666;
+          // border-radius: 6px;
+          color: white;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+  
+}
+
+footer{
+  height: 3em;
+
+  hr{
+    margin: 0 auto;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 90%;
+  }
+  
+  .footer_copy{
+    padding: 10px;
+    height: 4em;
+    line-height: 2em;
+    vertical-align: top;
+    text-align: right;
+    font-size: 1.3em;
+  }
+}
+
+@include media_tab(){
+  .wrap{
+    width: 100%;
+  }
+  main{
+    .section_wrap{
+      width: 90%;
+    }
+    .section_title{
+      display: block;
+    }
+
+    .service{
+      .contents{
+        width: 80vw;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+  
+        .content{
+          margin-top: 80px;
+          width: 100%;
+  
+          .img_wrap{
+            margin-top: 30px;
+          }
+  
+        }
+      }
+    }
+
+    .works{
+      .container{
+        .img_wrap{
+
+        }
+      }
+    }
+  }
+  .footer{
+    .footer_copy{
+      text-align: center;
+    }
+  }
+}
