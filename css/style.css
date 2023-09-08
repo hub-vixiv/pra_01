@@ -1,13 +1,11 @@
 @charset "UTF-8";
 /*
-Theme Name:Tomomi-01
-Author: Office step
-Version 1.0.1
+Author: Office Niko
 */
 /*--------------------
 Base
 ----------------------*/
-/*example nav's background-color*/
+/*example background-color*/
 /*example button's background-dolor*/
 /*example button's font color*/
 /*example button's point color*/
@@ -23,10 +21,10 @@ Base
 }
 
 html {
+  scroll-behavior: smooth;
 }
 
 body {
-  scroll-behavior: smooth;
   margin: 0 auto;
   padding: 0;
   background-color: #e9e9e9;
@@ -36,38 +34,6 @@ body {
 a {
   text-decoration: none;
   color: #252525;
-}
-
-.a_btn {
-  display: inline-block;
-  background-color: #e9e9e9;
-  border: 1px solid #e9e9e9;
-  color: #f4f4f4;
-  border-radius: 1.5em;
-  height: 3em;
-  line-height: 3em;
-  padding: 0 30px;
-  font-weight: bold;
-  box-shadow: 2px 2px 6px darkgray;
-  transition: 0.4s;
-}
-.a_btn:hover {
-  box-shadow: none;
-  opacity: 0.7;
-}
-
-.a_btn2 {
-  display: inline-flex;
-  background-color: #252525;
-  margin-right: 3vw;
-  padding: 1em;
-  height: 2em;
-  line-height: 2em;
-  border: 1px solid #000;
-  border-radius: 1em;
-  font-size: 1.3em;
-  justify-content: center;
-  align-items: center;
 }
 
 li {
@@ -183,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 5vh;
     padding-top: 4vh;
     border-right: none;
-    border-bottom: 1px dot #252525;
+    border-bottom: 1px solid #252525;
     vertical-align: middle;
   }
   .header .header_right nav ul a {
@@ -270,13 +236,13 @@ h1, h2, h3, h4, h5, h6 {
   left: 4px;
 }
 
-main .main_mg_wrap {
+main .main_img_wrap {
   width: 100vw;
-  height: 600px;
+  height: 100vh;
 }
-main .main_mg_wrap img {
+main .main_img_wrap .main_img {
   width: 100%;
-  height: 600px;
+  height: 100%;
   object-fit: cover;
 }
 main .section_wrap {

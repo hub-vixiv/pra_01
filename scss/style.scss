@@ -253,13 +253,13 @@ main{
   // width: 100%;
 
 //メインイメージ
-  .main_mg_wrap{
+  .main_img_wrap{
     width:100vw;
-    height: 600px;
-
-    img{
+    height: 100vh;
+  
+    .main_img{
       width:100%;
-      height:600px;
+      height:100%;
       object-fit:cover;
     }
   }
